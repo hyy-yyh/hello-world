@@ -1,0 +1,64 @@
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+int main(){
+	int k,i,j;
+	scanf("%d",&k);
+	while(k--){
+		
+		int A[100],B[100],C[100];
+		int starta=0,finisha,startb=0,finishb,startc=0;
+		scanf("%d",&finisha);
+		for(i=0;i<finisha*2;i++){
+			scanf("%d",&A[i]);
+		}
+		scanf("%d",&finishb);
+		for(i=0;i<finishb*2;i++){
+			scanf("%d",&B[i]);
+		}	
+	int aa=finisha*2,bb=finishb*2;
+		while(finisha<aa){
+			if(finishb<bb){
+				if(A[finisha]<B[finishb]){
+					C[startc]=B[startb];
+					startc++;
+					C[startc]=B[finishb];
+					startc++,startb++,finishb++;
+				}
+				else if(A[finisha]>B[finishb]){
+					C[startc]=A[starta];
+					startc++;
+					C[startc]=A[finisha];
+					startc++,starta++,finisha++;
+				}
+				else if(A[finisha]==B[finishb]){
+					C[startc]=A[starta]+B[startb];
+					startc++;
+					C[startc]=A[finisha];
+					startc++,starta++,finisha++,startb++,finishb++;
+				}
+			}
+			else{
+				C[startc]=A[starta];
+					startc++;
+					C[startc]=A[finisha];
+					startc++,starta++,finisha++;
+				}
+		}
+		while(finishb<bb){
+			C[startc]=B[startb];
+					startc++;
+					C[startc]=B[finishb];
+					startc++,startb++,finishb++;
+				}
+          for(i=0;i<startc-1;i=i+2){
+			  if(C[i]!=0)
+			  printf("%d " ,C[i]);
+		  }
+		   for(i=1;i<startc;i=i+2){
+			   if(C[i-1]!=0)
+			  printf("%d " ,C[i]);
+		  }
+		   printf("\n");
+	}
+}
