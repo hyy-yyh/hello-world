@@ -109,14 +109,35 @@ public class ww {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
-long totalMilliseconds=System.currentTimeMillis();
-long totalSeconds =totalMilliseconds/1000;
-long  currentSecond= totalSeconds % 60;
-long  totalMinutes =totalSeconds /60;
-long currentMinutes=totalMinutes %60;
-long totalhours =totalMinutes /60;
-long currenthour =totalhours % 24;
+	long totalMilliseconds=System.currentTimeMillis();
+	long totalSeconds =totalMilliseconds/1000;
+	long  currentSecond= totalSeconds % 60;
+	long  totalMinutes =totalSeconds /60;
+	long currentMinutes=totalMinutes %60;
+	long totalhours =totalMinutes /60;
+	long currenthour =totalhours % 24;
 
-System.out.println("Current time is "+currenthour+":"+currentMinutes+":"+currentSecond+" GMT");
+	System.out.println("Current time is "+currenthour+":"+currentMinutes+":"+currentSecond+" GMT");
 	}
 }
+
+2.8
+package ww;
+import java.util.Scanner;
+
+
+public class ww {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter purchase amout: ");
+	double purchaseAmount = input.nextDouble();
+	double tax=purchaseAmount *0.06;
+	System.out.println("Sales tax is $"+(int)(tax* 100)/100.0);
+		}
+
+}
+
+2.9
