@@ -151,8 +151,14 @@ public class ww {
 	
 	//Obtain the total minutes
 	long  totalMinutes =totalSeconds /60;
+	
+	//Compute the current minutes in the hour
 	long currentMinutes=totalMinutes %60;
+	
+	//Obtain the total hours
 	long totalhours =totalMinutes /60;
+	
+	//Compute current hour
 	long currenthour =totalhours % 24;
 
         //Display the result
@@ -188,17 +194,29 @@ public class ww {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+	//Create a Scanner	
 	Scanner input = new Scanner(System.in);
+	
+	//Enter annual interest rate in percentage, e.g., 7.25%
 	System.out.print("Enter annual interest rate, e.g., 7.25%: ");
+	
+	//Obtain monthly interest rate
 	double annualInterestRate =input.nextDouble();
 	double monthlylyInterestRate=annualInterestRate /1200;
+	
+	//Enter number of years
 	System.out.print("Enter number of years as an integer,e.g., 5: ");
 	int numberOfYears =input.nextInt();
+	
+	//Enter loan amount
 	System.out.print("Enter loan amount, e.g.,120000.95: ");
 	double loanAmount = input.nextDouble();
+	
+	//Calculate payment
 	double monthlypayment =loanAmount*monthlylyInterestRate/(1-1/Math.pow(1+monthlylyInterestRate,numberOfYears *12));
 	double totalpayment=monthlypayment * numberOfYears*12;
+	
+	//Display the result
 	System.out.println("The monthly payment is $"+(int)(monthlypayment *100)/100.0);
 	System.out.println("The total payment is $"+(int)(totalpayment*100)/100.0);
 
@@ -215,25 +233,32 @@ public class ww {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+	//create a Scanner	
 	Scanner input = new Scanner(System.in);
+	
+	//receive the amount
 	System.out.print("Enter an amount in double ,for example 11.56:");
 	double amount =input.nextDouble();
 	 int remainingAmount=(int)(amount*10);
 	 int numberOfOneDollars=remainingAmount /100;
 	 remainingAmount=remainingAmount %100;
 	 
+	 //find the number of one dollars
 	 int numberOfQuarters=remainingAmount/25;
 	 remainingAmount=remainingAmount%25;
 	  
+	  //find the number of quarters in the remaining amount 
 	 int numberOfDimes=remainingAmount/10;
 	 remainingAmount=remainingAmount%10;
 	 
+	 //find the number of nickels in the remaining amount
 	 int numberOfNickels=remainingAmount/5;
 	 remainingAmount=remainingAmount%5;
 	 
+	 //find the number of pennies in the remaining amount
 	 int numberOfpennies=remainingAmount;
 	 
+	 //Display the result
 	 System.out.println("You amount "+amount+" consists of");
 	 System.out.println("     "+numberOfOneDollars+" dollars");
 	 System.out.println("     "+numberOfQuarters+" quarters");
