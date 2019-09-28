@@ -30,142 +30,296 @@ public class ComputeAreaWithConsoleInput {
 
 
 7-2
-
-1//不能输出
-public class FormatDome {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//display the header of the table
-		System.out.printf("%-10s%-10s%-10s%-10s%-10s\n","Degrees","Radians","Sine","Cosine","Tangent");
-		//Display value for 30 degrees
-		int degrees = 30;
-		double radians = Math.toRadians(degrees);
-		System.out.printf("%-10d%-10.4f%-10.4f%-10.4f%-10.4f\n",degrees,radians,Math.sin(radians),Math.cos(radians),Math.tan(radians));
-		
-		//Display value for 60 degrees
-		degrees = 60;
-		radians = Math.toRadians(degrees);
-		System.out.printf("%-10d%-10.4f%-10.4f%-10.4f%-10.4f\n",degrees,radians,Math.sin(radians),Math.cos(radians),Math.tan(radians));
-		
-	}
-
-}
-2一些简单的输出的格式的标识符
-public class TestPrintf { 
-public static void main(String[] args) { 
-//定义一些变量，用来格式化输出。 
-double d = 345.678; 
-String s = "你好！"; 
-int i = 1234; 
-//"%"表示进行格式化输出，"%"之后的内容为格式的定义。 
-System.out.printf("%f",d); //"f"表示格式化输出浮点数。 
-System.out.println(); 
-System.out.printf("%9.2f",d); //"9.2"中的9表示输出的长度，2表示小数点后的位数。 
-System.out.println(); 
-System.out.printf("%+9.2f",d); //"+"表示输出的数带正负号。 
-System.out.println(); 
-System.out.printf("%-9.4f",d); //"-"表示输出的数左对齐（默认为右对齐）。 
-System.out.println(); 
-System.out.printf("%+-9.3f",d); //"+-"表示输出的数带正负号且左对齐。 
-System.out.println(); 
-System.out.printf("%d",i); //"d"表示输出十进制整数。 
-System.out.println(); 
-System.out.printf("%o",i); //"o"表示输出八进制整数。 
-System.out.println(); 
-System.out.printf("%x",i); //"d"表示输出十六进制整数。 
-System.out.println(); 
-System.out.printf("%#x",i); //"d"表示输出带有十六进制标志的整数。 
-System.out.println(); 
-System.out.printf("%s",s); //"d"表示输出字符串。 
-System.out.println(); 
-System.out.printf("输出一个浮点数：%f，一个整数：%d，一个字符串：%s",d,i,s); 
-//可以输出多个变量，注意顺序。 
-System.out.println(); 
-System.out.printf("字符串：%2$s，%1$d的十六进制数：%1$#x",i,s); 
-3
+package ww;
 import java.util.Scanner;
-public class AnalyzeNumbers {
+
+
+public class ww {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		 Scanner input= new Scanner(System.in);
-		System.out.print("Enter the number of items: ");
-		int n = input.nextInt();
-		double [] numbers = new double[n];
-		double sum = 0;
-		
-		System.out.print("Enter the numbers: ");
-		for(int i=0;i<n;i++){
-			numbers[i] = input.nextDouble();
-			sum += numbers[i];
-		}
-		double average = sum / n;
-		int count = 0;//The number of elements above average
-		for(int i = 0;i < n;i++)
-			if(numbers[i] > average)
-				count++;
-		
-		System.out.println("Average is " + average);
-		System.out.println("Number of elements above the average is " + count);
+			
+	int[] deck=new int[52];
+	String[]suits= {"spades","hearts","diamonds","clubs"};
+	String[] ranks ={"Ace","2","3","4","5","6","7","8","9","10","jack","queen","king"};
+	
+	//initialize the cards
+	for(int i=0;i<deck.length;i++)
+		deck[i]=i;
+	
+	//shuffle the cards
+	for(int i=0;i<deck.length;i++) {
+		//Generate an index randomly 
+		int index=(int)(Math.random()*deck.length);
+		int temp=deck[i];
+		deck[i]=deck[index];
+		deck[index]=temp;
 	}
-
-}
-4
+	
+	//display the first four cards
+	for (int i=0;i<4;i++) {
+		String suit=suits[deck[i]/13];
+		String rank=ranks[deck[i]/13];
+		System.out.println("Card number "+deck[i]+": "+rank+" of "+suit);
+		
+	}
+	}
+	}
+	
+	
+	
+	7-3
+	package ww;
 import java.util.Scanner;
-public class DeckOfCards {
+
+
+public class ww {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner input = new Scanner(System.in);
-		int[] deck = new int[52];
-		string[] suits = {"Spades","Heart","Diamonds","Clubs"};
-		String[] ranks = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
-		//Initialize the cards
-		for( int i =0;i<deck.length;i++){
-			deck[i]= i;
-			//Shuffle the cards
-			for(int i =0;i<deck.length;i++)
-				//Generate an index randomly
-				int index = (int)(Math.random() * deck.length);
-			int temp =deck[i];
-			deck[i]=deck[index];
-			deck[index]=temp;
+
+		int[] a= {1,2};
+		
+		//swap elements using the swap method
+		System.out.println("Before invoking swap");
+		System.out.println("array is {"+a[0]+", "+a[1]+"}");
+		swap(a[0],a[1]);
+		System.out.println("After invoking swap");
+		System.out.println("array is {"+a[0]+" , "+a[1]+"}");
+		
+		//swap elements using the  swapFirstTwoInArray
+		System.out.println("Before swapFirstTwoInArray ");
+		System.out.println("array is {"+a[0]+", "+a[1]+"}");
+		swapFirstTwoInArray(a);
+		System.out.println("After invoking swapFirstTwoInArray");
+		System.out.println("array is {"+a[0]+" , "+a[1]+"}");
+	}
+	
+	/** Swap two variables */
+	public static void swap(int n1,int n2) {
+		int temp=n1;
+		n1=n2;
+		n2=temp;
+	}
+	
+	/** Swap the first two elements in the array */
+	public static void swapFirstTwoInArray(int[] array) {
+		int temp=array[0];
+		array[0]=array[1];
+		array[1]=temp;
+	}
+}
+		
+	
+	
+	7-4
+	package ww;
+	import java.util.Scanner;
+	public class ww {
+
+	public static void main(String[] args) {
+	
+
+		
+		//Declare and create an array
+		char[] chars=createArray();
+		
+		//Display the array
+		System.out.println("the lowercase letters are :");
+		displayArray(chars);
+		
+		//Count the occurrences of each letter
+		int [] counts =countLetters(chars);
+		
+		//Display counts 
+		System.out.println();
+		System.out.println("The occounrrences of each letters are :");
+		displayCounts(counts);
+		
+	}
+	/**Create the occurrences of each letter  */
+	public static char[] createArray() {
+	//Declare an array of characters and create it
+		char[] chars =new char[100];
+		
+		//Create lowercase letters randomly and assign
+		//them to the array
+		for (int i=0;i<chars.length;i++)
+			chars[i]= RandomCharacter.getRandomLowerCaseLetter();
+		//return the array
+		return chars;
 		}
-		//Display the first four card
-		for(int i =0;i<4;i++){
-			String suit = suits[deck[i] / 13];
-			String rank = ranks[deck[i] % 13];
-			System.out.println("Card number " + deck[i] + ": " + rank + "of" + suit);
-		}
+		
+	
+	/** Display the array of  characters*/
+	public static void displayArray(char[] chars) {
+	//Display  the  characters in the 20 to each line 
+	for (int i=0;i<chars.length;i++ ) {
+		if((i+1)%20==0)
+			System.out.println(chars[i]);
+		else
+			System.out.println(chars[i]+" ");
+	}
+}
+
+
+	/**Count the occurrences of each letter */
+	public static int[] countLetters(char[] chars) {
+		//Declare and create an array of 26 int 
+		int[] counts =new int[26];
+
+		//For each lowercase letter in the array ,count it
+		for (int i=0;i<chars.length;i++)
+			counts[chars[i]-'a']++;
+
+		return counts;
 	}
 
-}
-#include<stdio.h>
-#include<math.h>
-#include<string.h>
-int main() {
-	int t;
-	scanf_s("%d", &t);
-	while (t--) {
-		int k,l[110];
-		int i=0, j,h=0;
-		char c[300];
-		scanf_s("%d", &k);
-		getchar();
-			gets_s(c);
-			for(h=0;h<k;h++){
-				if (c[k] == '*')
-					j = l[i] * l[i--], l[i--] = j;
-				else if (c[k] == '+')
-					j = l[i] + l[i--], l[i--] = j;
-				else if (c[k] == '-')
-					j = l[i] - l[i--], l[i--] = j;
-				else if (c[k] == '/')
-					j = l[i] / l[i--], l[i--] = j;
-				else 
-					l[++i] = c[k] - '0';
+	/**Display the counts*/
+	public static void displayCounts(int[] counts) {
+		for(int i=0;i<counts.length;i++) {
+			if((i+1)%10==0)
+				System.out.println(counts[i]+" "+(char)(i+'a'));
+			else
+				System.out.println(counts[i]+" "+(char)(i+'a')+" ");
 		}
-		printf("%d\n", l[1]);
+	}
+	}
+	
+	
+	
+	7-5
+	package ww;
+	import java.util.Scanner;
+	public class ww {
+
+	public static void main(String[] args) {
+	
+	printMAX(34,3,3,2,56.5);
+	printMAX(new double[] {1,2,3});
+		}
+		public static void printMAX(double...numbers) {
+			if(numbers.length==0) {
+				System.out.println("No argument passed");
+				return;
+			}
+			
+			double result=numbers[0];
+			
+			for(int i=1;i<numbers.length;i++)
+				if(numbers[i]>result)
+					result=numbers[i];
+			
+			System.out.println("The max value is "+result);
+		}
+	}
+	
+	
+	
+	7-6
+	package ww;
+	import java.util.Scanner;
+	public class ww {
+
+	public static void main(String[] args) {
+	
+		/**The method for finding a key in the list*/
+		public static int linearsearch(int[] list, int key) {
+			for(int i=0;i<list.length;i++) {
+				if(key==list[i])
+					return i;
+			}
+			return -1;
+			}
+		}
+	
+	
+	7-7
+	package ww;
+	import java.util.Scanner;
+	public class ww {
+
+	public static void main(String[] args) {
+
+		public static int binarySearch(int[] list,int key) {
+	int low=0;
+	int high = list.length-1;
+	while(high>=low) {
+		int mid =(low+high)/2;
+		if(key==list[mid])
+			return mid;
+		else
+			low=mid+1;
+	}
+	return -low-1;//Now high<low,key not found;
 	}
 }
+
+
+7-8
+package ww;
+import java.util.Scanner;
+public class ww {
+
+	public static void main(String[] args) {
+	}
+	public static void selectionSort(double[] list) {
+	
+	for(int i=0;i<list.length-1;i++) {
+		//Find the minimum in the list[i..list.length-1]
+		double currentMin=list[i];
+		int currentMinIndex=i;
+		
+		for(int j=i+1;j<list.length;j++) {
+			if(currentMin>list[j]) {
+				currentMin=list[j];
+				currentMinIndex=j;
+			}
+		}
+		//Swap list[i] with list[currentMinIndex]if necessary
+		if(currentMinIndex!=i) {
+			list[currentMinIndex]=list[i];
+			list[i]=currentMin;
+		}
+	}
+			
+	}
+}
+
+
+7-9
+
+	package ww;
+	import java.util.Scanner;
+	public class ww {
+
+	public static void main(String[] args) {
+	
+
+		//Check number of strings passed
+		if(args.length!=3) {
+			System.out.println(
+					"Usage: java Calculator operandl operator operand2");
+			System.exit(0);
+		}
+	//the result of the operation
+		int result=0;
+		
+		//Determine the operator
+		switch(args[1].charAt(0)) {
+		case'+':result=Integer.parseInt(args[0])+
+				Integer.parseInt(args[2]) ;
+		break;
+		case'-':result=Integer.parseInt(args[0])-
+				Integer.parseInt(args[2]) ;
+		break;
+		case'/':result=Integer.parseInt(args[0])/
+				Integer.parseInt(args[2]) ;
+		break;
+		}
+		//Display result
+		System.out.print(args[0]+ " "+args[1]+" "+args[2]+"="+result);
+	}
+}
+
+
+
+
