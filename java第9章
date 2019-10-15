@@ -215,3 +215,37 @@ public class TestPoint2D {
 	}
 
 }
+9-6
+package testsimlecircle;
+
+public class circlestatic {
+
+	/** The radius of the circle*/
+	double radius;
+	
+	/**The number of objects created*/
+	static int numberofobjects=0;
+	/**Construct a circle with radius1*/
+	circlestatic(){
+		radius=1;
+		numberofobjects++;
+		
+	}
+	/**Construct a circle with  a specified radius*/
+	circlestatic(double newRadius){
+		radius=newRadius;
+		numberofobjects++;
+		
+	}
+	/** return numberofobjects */
+	static int getNumberofobjects(){
+		return numberofobjects;
+		
+	}
+	/**return the area of the circle */
+	double getArea(){
+		return radius*radius*Math.PI;
+	}
+	
+	
+}
