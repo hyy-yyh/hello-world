@@ -1,0 +1,89 @@
+Description
+假设我们有一个单向链表，没有头节点。怎样实现一个函数完成该链表的插入和反转?
+
+ 
+
+例如：输入：1，2，3。你的函数完成1，2，3节点的插入，生成链表1 -> 2 -> 3。
+
+然后完成链表反转，3 -> 2 -> 1。
+
+Input
+多组输入
+
+第一行一个数字n，表示当前链表有n个数字
+
+接下来一行有n个数字，表示链表上节点的数值
+
+Output
+输出反转后的顺序
+
+Samples
+input:
+5
+1 2 3 4 5
+output:
+5 4 3 2 1
+
+
+#include <stdio.h>
+#include <stdlib.h>
+typedef int ElemType;
+typedef struct List
+{
+
+	ElemType data;      //数据域
+	struct List *next;  //指针域
+} Node, *LinkedList;
+int i;
+//头插法创建链表，将新增节点插头第一个节点之前
+LinkedList createH(int k)
+{
+
+		Node *L = (Node *)malloc(sizeof(Node));     //申请一个数据域为空的头节点
+		
+		L->next = NULL;
+	
+	
+	
+
+		for (int i = 0; i < k; i++)        //依次插入节点
+		{
+			ElemType data;
+			scanf_s("%d", &data);
+			Node *p = (Node *)malloc(sizeof(Node));     //申请节点空间
+			p->data = data;
+			p->next = L->next;          //头结点指向新增节点
+			L->next = p;                //新增节点指向第一个节点
+		}
+		return L;                       //返回头节点
+
+	}
+
+
+void printList(LinkedList L)
+{
+	LinkedList p;
+	
+	p = L->next;
+
+	while (p->next != NULL)
+	{
+		printf("%d ", p->data);
+		p = p->next;
+	}
+
+	printf("%d\n", p->data);
+}
+
+int main() {
+	LinkedList L;
+	int k;
+	while (scanf_s("%d", &k) != EOF) {
+		L = createH(k);         //头插法创建链表
+		printList(L);
+	}
+}
+
+
+网址：
+https://blog.csdn.net/jiqi0053/article/details/85462946
