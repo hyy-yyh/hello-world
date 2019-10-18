@@ -1,0 +1,69 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct node {
+	int data;
+	node * next;
+}node;
+
+//尾部添加
+node * add(int n, node * head) {
+    node *t= (node *)malloc(sizeof(node));     //申请一个数据域为空的头节点
+		
+	
+	/*node * t = new node;*/
+	t->data = n;
+	t->next = NULL;
+	if (head == NULL) {
+		head = t;
+	}
+	else if (head->next == NULL) {
+		head->next = t;
+	}
+	else {
+		node * p = head->next;
+		while (p->next != NULL) {
+			p = p->next;
+		}
+		p->next = t;
+	}
+	return head;
+}
+
+
+
+//递归
+void reversePrint(node *p) {
+	if (p != NULL) {
+		reversePrint(p->next);
+		printf("%d ", p->data);
+	}
+}
+
+void clear(struct node *head)
+{
+	struct node *p;
+	while (head != NULL)
+	{
+		p = head;
+		head = head->next;
+		p->next = NULL;
+		free(p);
+		p = NULL;
+	}
+}
+int main() {
+	int n,m;
+	
+	while (scanf("%d", &n) != EOF) {
+		node *head=NULL;
+		for (int i = 1; i <= n; i++) {
+			scanf("%d", &m);
+			head = add(m, head);
+		}
+		reversePrint(head);
+	
+		printf("\n");
+		//print(head,n);
+	}
+	return 0;
+}
