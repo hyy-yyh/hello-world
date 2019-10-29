@@ -1,0 +1,140 @@
+package 题目练习;
+
+public class RegularPolygon1 {
+	private int n;
+	private double side;
+	private double x;
+	private double y;
+	
+	
+	
+	public  RegularPolygon1(int k,double aside){//置顶边数和边长，中心点在（0,0）
+		n=k;
+		side=aside;
+		x=0;
+		y=0;
+	
+	}
+	
+	public  RegularPolygon1(){//带默认值的无参构造方法
+		n=3;
+		side=1;
+		x=0;
+		y=0;
+		
+	}
+	
+	public  RegularPolygon1(int k,double aside,double ax,double ay){
+		n=k;
+		side=aside;
+		x=ax;
+		y=ay;
+	
+	}
+	
+	public void Setn(int n){
+		this.n=n;
+	}
+	public int getn(){
+		return n;
+	}
+	
+	public void Setside(double side){
+		this.side=side;
+	}
+	public double getside(){
+		return side;
+	}
+	
+	public void Setx(double x){
+	this.x=x;
+	}
+	public double getx(){
+		return x;
+	}
+	
+	public void Sety(double y){
+		this.y=y;
+		}
+	public double gety(){
+		return y;
+	}
+	
+	
+	
+	public double getPerimeter(){
+		return n*side;
+	}
+	public double getArea(){
+		return n*n*side*n*side/(4.0*Math.tan(180/n));
+	}
+}
+
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+package 题目练习;
+
+public class testRegularPolygon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		RegularPolygon1 RP1=new RegularPolygon1();
+		System.out.println(RP1.getPerimeter()+" "+RP1.getArea());
+		RegularPolygon1 RP2=new RegularPolygon1(6,4.0);
+		System.out.println(RP2.getPerimeter()+" "+RP2.getArea());
+		RegularPolygon1 RP3=new RegularPolygon1(10,4,5.6,7.8);
+		System.out.println(RP3.getPerimeter()+" "+RP3.getArea());
+	}
+
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+package 题目练习;
+import java.util.Scanner;
+public class Location {
+	private int row;
+	private int column;
+
+	public double maxvalue=0;
+		public double[][] setshuzu(double[][] a){
+			
+			for(int i=0;i<a.length;i++){
+				for(int j=0;j<a[0].length;j++){
+				
+					if(a[i][j]>maxvalue){
+						maxvalue=a[i][j];
+					    row=i;
+					    column=j;
+				}
+			}
+			}
+			return a;
+			
+		}
+	
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+package 题目练习;
+import java.util.Scanner;
+public class testlocation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input =new Scanner(System.in);
+System.out.print("Ente the number of rows and columns int the array: ");
+int a;
+int b;
+a=input.nextInt();
+b=input.nextInt();
+int i;
+int j;
+double kk[][] = null;
+for(i=0;i<a;i++){
+	for(j=0;j<b;j++){
+		kk[i][j]=input.nextDouble();
+	}
+}
+setshuzu(kk);
+System.out.print(b);
+	}
+
+}
