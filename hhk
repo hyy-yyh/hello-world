@@ -1,0 +1,74 @@
+#include <iostream>
+#include <malloc.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+using namespace std;
+int i=0;
+typedef struct bitnode              //定义二叉树节点数据类型 
+{
+	char data;
+	struct bitnode *left, *right;
+} bitnode, *bitree;           //bitree为指向bitnode这种结构的指针
+
+bitree PerCreateTree(char k[1000])
+{
+	bitree T;
+	char item;
+	     
+		item = k[i];
+		i = i + 1;
+		if (item == '.')              //叶节点数据标志：其后根两个0 
+			T = NULL;            //若某一节点为叶子结点，则其左右子树均为NULL，0表示建空树
+		else
+		{
+			T = (bitree)malloc(sizeof(bitnode));
+			T->data = item;
+
+			T->left = PerCreateTree(k);             //递归创建其左子树 
+			T->right = PerCreateTree(k);            //递归创建其右子树 
+		}
+
+		return T;//返回根节点 
+	
+	
+}
+void PerOrder(bitree T)
+{
+	if (T)            // T != NULL 
+	{
+		PerOrder(T->left);  //递归周游其左子
+		printf_s("%c", T->data );
+		PerOrder(T->right);           //递归周游其右子树 
+	}
+}
+
+//释放空间
+bitree FreeTree(bitree T)
+{
+	if (T)
+	{
+		FreeTree(T->left);            //递归释放其左子树 
+		FreeTree(T->right);           //递归释放其右子树 
+
+		free(T);                      //释放根节点 
+		T = NULL;                     //释放指向根节点的指针 
+	}
+
+	return T;           //返回释放后的根节点NULL 
+}
+
+int main() {
+	     char k[1000];
+		 while (scanf_s("%s",k) != EOF) {
+			 bitree root;
+
+			 root = PerCreateTree(k);
+			 PerOrder(root);
+			 printf("\n");
+			 FreeTree(root);
+		 }
+		
+
+	
+}
