@@ -89,17 +89,13 @@ public class testRegularPolygon {
 }
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 package 题目练习;
-import java.util.Scanner;
-public class Location {
-	private int row;
-	private int column;
-
+public class location {
+	public int row;
+	public int column;
 	public double maxvalue=0;
-		public double[][] setshuzu(double[][] a){
-			
+		public location(double[][] a){			
 			for(int i=0;i<a.length;i++){
-				for(int j=0;j<a[0].length;j++){
-				
+				for(int j=0;j<a[0].length;j++){				
 					if(a[i][j]>maxvalue){
 						maxvalue=a[i][j];
 					    row=i;
@@ -107,34 +103,35 @@ public class Location {
 				}
 			}
 			}
-			return a;
-			
-		}
 	
+		}
 }
+
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 package 题目练习;
 import java.util.Scanner;
 public class testlocation {
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner input =new Scanner(System.in);
-System.out.print("Ente the number of rows and columns int the array: ");
-int a;
-int b;
-a=input.nextInt();
-b=input.nextInt();
-int i;
-int j;
-double kk[][] = null;
-for(i=0;i<a;i++){
-	for(j=0;j<b;j++){
-		kk[i][j]=input.nextDouble();
-	}
-}
-setshuzu(kk);
-System.out.print(b);
-	}
+	
+				Scanner input  =new Scanner(System.in);
+		System.out.print("Ente the number of rows and columns int the array: ");
+		int a;
+		int b;
+		a=input.nextInt();
+		b=input.nextInt();
+		
+		int i;
+		int j;
+		double[][] kk = new double[1000][1000];
+		for(i=0;i<a;i++){
+			for(j=0;j<b;j++){
+				kk[i][j]=input.nextDouble();
+			}
+		}
+		location l=new location(kk);
+		System.out.print("the location of the largest element is"+l.maxvalue+"at ("+l.row+","+l.column+")");
+			}
 
-}
+		}
