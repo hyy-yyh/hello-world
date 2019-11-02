@@ -1,3 +1,4 @@
+9.9
 package 题目练习;
 
 public class RegularPolygon1 {
@@ -88,6 +89,7 @@ public class testRegularPolygon {
 
 }
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+9.13
 package 题目练习;
 public class location {
 	public int row;
@@ -135,3 +137,78 @@ public class testlocation {
 			}
 
 		}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+9.12
+package ww;
+
+public class LinearEquation {
+
+
+private double a;
+private double b;
+private double c;
+private double d;
+private double e;
+private double f;
+
+
+public  LinearEquation(double x1,double y1,double x2,double y2,double x3,double y3,double x4,double y4) {
+	this.a=y1-y2;
+	this.b=x2-x1;
+	this.c=y3-y4;
+	this.d=x4-x3;
+	this.e=(x2-x1)*y1-(y2-y1)*x1;
+	this.f=(x4-x3)*y3-(y4-y3)*x3;
+
+}
+
+
+
+public String isSolvable(){
+	String kk= "true",k=" ";
+	if((a*d-b*c)!=0) {
+	return kk;
+	}
+	else {
+		return k;
+	}
+		
+
+}
+public double getX() {
+	return (e*d-b*f)/(a*d-b*c);
+}
+public double  getY() {
+	return (a*f-e*c)/(a*d-b*c);
+}
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+package ww;
+import java.util.Scanner;
+public class testLE {
+	 
+	public static void main(String[] args) {
+		Scanner input  =new Scanner(System.in);
+		System.out.print("Ente the number ");
+		double x1,x2,x3,x4,y1,y2,y3,y4;
+		x1=input.nextDouble();
+		y1=input.nextDouble();
+		x2=input.nextDouble();
+		y2=input.nextDouble();
+		x3=input.nextDouble();
+		y3=input.nextDouble();
+		x4=input.nextDouble();
+		y4=input.nextDouble();
+		String ll;
+		
+		
+		LinearEquation l=new LinearEquation(x1,y1,x2,y2,x3,y3,x4,y4);
+		ll=l.isSolvable();
+		if(ll=="true") {
+		System.out.print("("+l.getX()+","+l.getY()+")");
+		}
+		else
+			System.out.print("The equation has no solution");
+	}
+
+}
