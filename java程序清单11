@@ -1,0 +1,211 @@
+11-1
+package kk;
+
+public class Simplegeometericobject {
+private String color="white";
+private boolean filled;
+private java.util.Date dateCreated;
+
+/** Construct a default geometric object*/
+public Simplegeometericobject(){
+	dateCreated=new java.util.Date();
+	
+}
+public Simplegeometericobject(String color,boolean filled){
+	dateCreated=new java.util.Date();
+	this.color=color;
+	this.filled=filled;
+	
+}
+
+public String getColor(){
+	return color;
+}
+public void setColor(String color){
+   this.color=color;
+}
+
+public boolean  isFilled(){
+	return filled;
+}
+
+public void setFilled(boolean filled){
+	   this.filled=filled;
+	}
+public java.util.Date getdateCreated(){
+	return dateCreated;
+}
+
+public String toString(){
+	return "cccreated oon"+dateCreated+"\ncolor:"+color+" and filled"+filled;	
+}
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-2
+package kk;
+
+public class CircleFormSimpleGeometriobject 
+         extends Simplegeometericobject{
+private double radius;
+public CircleFormSimpleGeometriobject(){
+	}
+public CircleFormSimpleGeometriobject(double radius){
+	this.radius=radius;	
+}
+public CircleFormSimpleGeometriobject(double radius,String color,boolean filled){
+	this.radius=radius;
+	setColor(color);
+	setFilled(filled);
+}
+ public double getRadius(){
+	 return radius;
+ }
+ 
+ 
+ public void setRadius(double radius){
+	this.radius=radius; 
+ }
+ 
+ public double getArea(){
+	 return radius*radius*Math.PI;
+ }
+ public double getDiameter(){
+	 return 2*radius;
+ }
+ public double getPerimeter(){
+	 return 2*radius*Math.PI;
+ }
+ public void printCircle(){
+	 System.out.println("The circlr is created "+getdateCreated()+" and the radius  is "+radius);
+ }
+ }
+ mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+ 11-3
+ package kk;
+
+public class rectangleFromSimpleGeometricoblect 
+     extends Simplegeometericobject{
+	private double width;
+	private double height;
+	
+	public rectangleFromSimpleGeometricoblect(){
+		
+	}
+	public rectangleFromSimpleGeometricoblect(double width,double height){
+		this.width=width;
+		this.height=height;
+		}
+	public rectangleFromSimpleGeometricoblect(
+			double width,double height,String color,boolean filled){
+		this.width=width;
+		this.height=height;
+		setColor(color);
+		setFilled(filled);
+		}
+	
+	/** return width*/
+	public double  getwidth(){
+		return width;
+	}
+	
+	/** set a new width*/
+	public void  setwidth(double width){
+		this.width=width;
+	}
+	
+	/** return height*/
+	public double  getheight(){
+		return height;
+	}
+	
+
+	/** set a new width*/
+	public void  setheight(double height){
+		this.height=height;
+	}
+	
+	/** return area*/
+	public double  getarea(){
+		return width*height;
+	}
+	/** return Perimeter*/
+	public double  getperimeter(){
+		return 2*(width+height);
+	}
+	
+	
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-4
+package kk;
+
+public class TestCircleRectangle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CircleFormSimpleGeometriobject circle=
+				new CircleFormSimpleGeometriobject(1);
+		System.out.println("A circle "+circle.toString());
+		System.out.println("The color is "+circle.getColor());
+		System.out.println("the radius is "+circle.getRadius());
+		System.out.println("the area is "+circle.getArea());
+		System.out.println("the diameter is "+circle.getDiameter());
+		
+		rectangleFromSimpleGeometricoblect rectangle=
+				new rectangleFromSimpleGeometricoblect(2,4);
+		System.out.println("\nA rectangle"+rectangle.toString());
+		System.out.println("The area is "+rectangle.getarea());
+		System.out.println("the perimeter is "+rectangle.getperimeter());
+	}
+
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-5
+package kk;
+/** Main method*/
+public class polymorphismdemo {
+	public static void main(String[] args){
+displayobject(new CircleFormSimpleGeometriobject
+		(1,"red",false));
+displayobject(new rectangleFromSimpleGeometricoblect
+		(1,1,"lack",true));
+}
+/**displayobject geometric object propertise*/
+public static void displayobject(Simplegeometericobject object){
+	System.out.println("Created on "+object.getdateCreated()+".color is "+object.getColor());
+}
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-6
+package kk;
+
+public class DynamicBindingDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+m(new GraduateStudent());
+m(new Student());
+m(new person());
+m(new Object());
+	}
+public static void m(Object x){
+	System.out.println(x.toString());
+}
+}
+
+class GraduateStudent extends Student{
+}
+
+class Student extends person{
+	@Override
+	public String toString(){
+		return "Student";
+	}
+}
+	class person extends Object{
+		@Override
+		public String toString(){
+			return "person";
+		}
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
