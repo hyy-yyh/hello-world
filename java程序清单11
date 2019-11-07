@@ -209,3 +209,143 @@ class Student extends person{
 		}
 }
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-7
+package ww;
+
+public class castDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Object object1=new CircleFromSimpleGeometricObject(1);
+Object object2=new CircleFromSimpleGeometricObject(1,1);
+
+displayObject(object1);
+displayObject(object2);
+	}
+public static void displayObjects(Object object) {
+	if(object instanceof CircleFromSimpleGeometricObject) {
+		System.out.println("The circle area is "+((CircleFromSimpleGeometricObject).getArea());
+	System.out.println("The circle diameter is "+((CircleFromSimpleGeometricObject).getDiameter());
+}
+	else if(object instanceof RectangleFromSimpleGeometricObject){
+		System.out.println("The Rectang area is "+((RectangleFromSimpleGeometricObject).getArea());
+	}
+	
+	}
+
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-8
+package ww;
+
+import java.util.ArrayList;
+
+public class TestArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//Create a list to store cities
+		ArrayList<String> cityList=new ArrayList<>
+		
+		//Add some cities in the list
+		cityList.add("london");
+		//cityList now contans [London]
+		cityList.add("Denver");
+		//cityList now contans [London,Denver]
+		cityList.add("Paris");
+		//cityList now contans [London,Denver,Paris]
+		cityList.add("Miami");
+		//cityList now contans [London,Denver,Paris,Miami]
+		cityList.add("seoul");
+		//cityList now contans [London,Denver,Paris,Miami,seoul]
+		cityList.add("Tokyo");
+		//cityList now contans [London,Denver,Paris,Miami,seoul,Tokyo]
+		
+		System.out.println("List size?"+cityList.size());
+		System.out.println("Is Miami in the list?"+cityList.indexOf("Miami"));
+		System.out.println("The location of Denver in the list?"+cityList.indexOf("Denver"));
+		System.out.println("Is the list empty?"+cityList.isEmpty());
+		
+		//Insert a new city at index 2
+		cityList.add(2,"xian");
+		//cotain [London,Denver,xian,Paris,Miami,seoul,Tokyo]
+		
+		//Remove a city from the list
+		cityList.remove("Miami");
+		
+		//Remove a  city at index 1
+				cityList.remove(1);
+				//cotain [London,xian,Paris,Miami,seoul,Tokyo]
+				
+				//display the contents in the list 
+				System.out.println(cityList.toString());
+				
+		//Create a list to store two circles
+		ArrayList<CircleFromSimpleGeometricObject>list
+		=new ArrayList<>()
+		//Add two circles
+		list.add(new CircleFromSimpleGeometricObject(2));
+		list.add(new CircleFromSimpleGeometricObject(3));
+		
+		//Display the area of the first circle in the list
+		System.out.println("the area of the circle "+list.get(0).getArea());
+	}
+
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-9
+package ww;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Distinc {
+	public static void main(String[] args) {
+		ArrayList<Integer> list=new ArrayList<>();
+		
+		Scanner input =new Scanner(System.in);
+		System.out.println("Enter integers (input ends with 0):");
+		int value ;
+		do {
+			value=input.nextInt();
+			if(!list.contains(value)&&value!=0)
+			list.add(value);
+		}while(value!=0);
+		
+		//Display the diatinct numbers
+		for(int i=0;i<list.size();i++)
+			System.out.print(list.get(i)+" ");
+		
+		}
+	}
+mmmmmmmmmmmmmmmmmmmmmmmmmmm
+11-10
+package ww;
+
+import java.util.ArrayList;
+
+public class MYstack {
+
+	private ArrayList<Object> list =new ArrayList<>();
+	public boolean isEmpty() {
+		return list.isEmpty();
+	}
+
+	public int getsize() {
+		return list.size();
+	}
+	public Object peek() {
+		return list.get(getsize()-1);
+	}
+	public Object pop() {
+		Object o=list.get(getsize()-1);
+		list.remove(getsize()-1);
+		return o;
+	}
+	public void push(Object o) {
+		list.add(o);
+	}
+	@Override
+	public String toString() {
+		return "ststic:"+list.toString();
+	}
+}
