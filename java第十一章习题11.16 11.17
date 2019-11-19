@@ -1,0 +1,59 @@
+11.16
+import java.util.Scanner;
+public class add extends  wronganswer {
+	
+	public static void main(String[] args){
+		int number1=(int)(Math.random()*10);
+		int number2=(int)(Math.random()*10);
+		wronganswer k=new wronganswer();
+		//create a Scanner
+		Scanner input =new Scanner(System.in);
+		
+		System.out.print("What is "+number1+" + "+number2+"? ");
+		int answer=input.nextInt();
+		
+		while(number1+number2!=answer){
+			k.setanswer(answer);
+			int a=k.checkanswer(answer);
+			if(a==1){
+				System.out.println("You already entered "+answer);
+				System.out.print("Wrong answer.Try again.What is "+number1+" + "+number2+"? ");
+			}
+			else{
+			System.out.print("Wrong answer.Try again.What is "+number1+" + "+number2+"? ");
+			}
+			
+			answer=input.nextInt();
+		}
+		System.out.println("You got it!");
+	}
+}
+
+---------------------
+public class wronganswer {
+private int[] answer=new int[1000];
+private int i=0,j=0,flag=0;
+public wronganswer(){
+
+}
+public void setanswer(int k){
+	answer[i]=k;
+	i=i+1;
+}
+
+public int checkanswer(int l){
+	flag=0;
+	for(j=0;j<i-1;j++){
+		if(l==answer[j]){
+			flag=1;
+			break;
+		}
+	}
+	if(flag==1){
+		return 1;
+	}
+	else
+		return 0;
+}
+
+}
