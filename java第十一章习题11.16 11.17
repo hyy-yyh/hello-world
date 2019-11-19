@@ -57,3 +57,52 @@ public int checkanswer(int l){
 }
 
 }
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+11.17
+import java.util.Scanner;
+public class wqpf extends yinzi{
+	public static void main(String[] args){
+		Scanner input =new Scanner(System.in);
+		
+		int m,n;
+		System.out.println("Enter an integer m: ");
+		m=input.nextInt();
+		yinzi k=new yinzi();
+	n=k.getn(m);
+		System.out.println("The smallest number n for m*n to be a perfect square is "+n);
+		System.out.print("m*n is "+m*n );
+	}
+}
+
+---------------------
+
+public class yinzi{
+ private int[] yinzi=new int[1000];
+ private int[] k=new int[1000];
+ private int j=2,i=0,sum=1;
+ 
+ public yinzi(){
+
+ }
+ public int getn(int m){
+	 j=2;
+   while(m!=1){
+	if(m%j==0){
+		yinzi[i]=j;
+		i++;
+		m=m/j;
+		k[j]++;
+	}
+	else{
+		j=j+1;
+	}
+	
+}
+   for(int j=0;j<1000;j++)
+   {
+       if(k[j]!=0&&(k[j]%2==1))
+           sum=sum*j;
+   }
+  return sum;
+ }
+ }
