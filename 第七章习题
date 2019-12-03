@@ -52,3 +52,39 @@ public class ll {
 	}
 	mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 	
+7.17错误
+package jkl;
+import java.util.Scanner;
+public class ll {
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	int[] a=new int[110];
+	String[] b=new String[110];
+	
+	
+	int k=1,i,j,source,flag=0;
+	System.out.println("Enter the number of students: ");
+	k=input.nextInt();
+	System.out.println("Enter the source and name: ");
+	for(i=1;i<=k;i++){
+	String y = input.nextLine();
+	 a[i] = Integer.parseInt(y);  
+	b[i]=input.nextLine();
+	}
+	int max=0;
+		for(j=1;j<k;j++){
+			max=0;
+			for(i=1;i<k;i++){
+				if(max<a[i]){
+					max=a[i];
+					flag=i;
+				}
+				}
+			System.out.println(b[flag]+" "+a[flag]);
+			a[flag]=0;
+
+		}
+			
+	}
+	
+}
