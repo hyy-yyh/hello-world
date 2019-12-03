@@ -22,3 +22,33 @@ public class ll {
 	}
 }
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+7-5
+package jkl;
+import java.util.Scanner;
+public class ll {
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter the integers between 1 and 100: ");
+	int[] a=new int[110];
+	int k=1,i,j,flag=0,number=0;
+	for(i=1;i<=10;i++){
+		k=input.nextInt();
+		flag=1;
+		for(j=1;j<number;j++){
+			if(k==a[j]){
+				flag=0;
+			}
+		}
+		if(flag!=0){
+			number++;
+			a[number]=k;
+		}
+	}
+	System.out.println("The number of distinct numbers is:"+ number);
+	System.out.print("The distinct numbers are:" );
+	for(j=1;j<=number;j++){
+       System.out.print(a[j]+" ");
+		}
+	}
+	mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+	
