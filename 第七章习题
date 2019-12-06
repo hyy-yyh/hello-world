@@ -50,41 +50,325 @@ public class ll {
        System.out.print(a[j]+" ");
 		}
 	}
-	mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 	
-7.17错误
-package jkl;
-import java.util.Scanner;
-public class ll {
-	public static void main(String[] args) {
-	Scanner input = new Scanner(System.in);
-	int[] a=new int[110];
-	String[] b=new String[110];
-	
-	
-	int k=1,i,j,source,flag=0;
-	System.out.println("Enter the number of students: ");
-	k=input.nextInt();
-	System.out.println("Enter the source and name: ");
-	for(i=1;i<=k;i++){
-	String y = input.nextLine();
-	 a[i] = Integer.parseInt(y);  
-	b[i]=input.nextLine();
-	}
-	int max=0;
-		for(j=1;j<k;j++){
-			max=0;
-			for(i=1;i<k;i++){
-				if(max<a[i]){
-					max=a[i];
-					flag=i;
-				}
-				}
-			System.out.println(b[flag]+" "+a[flag]);
-			a[flag]=0;
+7.17
+package ww;
 
-		}
-			
-	}
+import java.util.Scanner;
+public class lll {
+	public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    int num;
+
+    System.out.print("请输入学生的个数：");
+
+    num = scanner.nextInt();
+
+ 
+
+    String[] name = new String[num];
+
+    double[] result = new double[num];
+
+    for (int i = 0; i < num; i++) {
+
+        System.out.print("请输入第" + (i + 1) + "学生的姓名：");
+
+        name[i] = scanner.next();
+
+        System.out.print("请输入第" + (i + 1) + "学生的成绩：");
+
+        result[i] = scanner.nextDouble();
+
+    }
+
+ 
+
+    listSort(result, name, num);
+
+}
+
+ 
+
+private static void listSort(double[] result, String[] name, int num) {
+
+    double tmpResult;
+
+    String tmpName;
+
+    for (int i = 0; i < num; i++) {
+
+        for (int j = i; j < num; j++) {
+
+            if (result[i] < result[j]) {
+
+                tmpResult = result[j];
+
+                result[j] = result[i];
+
+                result[i] = tmpResult;
+
+ 
+
+                tmpName = name[j];
+
+                name[j] = name[i];
+
+                name[i] = tmpName;
+
+            }
+
+        }
 	
+
+    }
+
+ 
+
+    System.out.println("姓名           成绩");
+    System.out.println("------------------");
+
+    for (int i = 0; i < num; i++) {
+
+        System.out.printf("%-1s%14.1f\n", name[i], result[i]);
+
+    }
+
+}
+}
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+7.18
+package ww;
+import java.util.Scanner;
+import java.util.Arrays;
+public class bubblesort {
+
+
+
+public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("请输入十个数：");
+
+    double[] list = new double[10];
+
+    for (int i = 0; i < 10; i++) {
+
+        list[i] = scanner.nextDouble();
+
+    }
+
+    System.out.println(Arrays.toString(list));
+
+    System.out.print( Arrays.toString(arraySort(list)));
+
+}
+
+ 
+
+private static double[] arraySort(double[] list) {
+
+    double tmp;
+
+    for (int i = 0; i < list.length - 1; i++) {
+
+        for (int j = 0; j < list.length - 1 - i; j++) {
+
+            if (list[j] > list[j + 1]) {
+
+                tmp = list[j + 1];
+
+                list[j + 1] = list[j];
+
+                list[j] = tmp;
+
+            }
+
+        }
+
+    }
+
+    return list;
+
+}
+
+}
+
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+7.19
+package ww;
+import java.util.Scanner;
+import java.util.Arrays;
+public class bubblesort {
+
+
+public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+
+    int num;
+
+    System.out.print("Enter list");
+
+    num = scanner.nextInt();
+
+    int[] numArray = new int[num];
+
+    for (int i = 0; i < num; i++) {
+
+        numArray[i] = scanner.nextInt();
+
+    }
+
+
+
+    if (isSorted(numArray)) {
+
+        System.out.print("The list is not sorted");
+
+    } else {
+
+        System.out.print("The list is already sorted");
+
+    }
+
+}
+
+ 
+
+private static boolean isSorted(int[] numArray) {
+
+    int[] tmpArray = new int[numArray.length];
+
+    System.arraycopy(numArray, 0, tmpArray, 0, numArray.length);
+
+    Arrays.sort(tmpArray);
+
+    return Arrays.equals(tmpArray, numArray);
+
+}
+}
+\mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+
+
+
+
+
+
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+7.31
+package ww;
+import java.util.Scanner;
+import java.util.Arrays;
+public class bubblesort {
+
+
+
+public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter list1");
+
+    int[] list1 = new int[scanner.nextInt()];
+
+    for (int i = 0; i < list1.length; i++) {
+
+        list1[i] = scanner.nextInt();
+
+    }
+
+    System.out.print("Enter list 2");
+
+    int[] list2 = new int[scanner.nextInt()];
+
+    for (int i = 0; i < list2.length; i++) {
+
+        list2[i] = scanner.nextInt();
+
+    }
+
+  
+
+    System.out.print("the merged list" + Arrays.toString(merge(list1, list2)));
+
+}
+
+ 
+
+private static int[] merge(int[] list1, int[] list2) {
+
+    int[] newList = new int[list1.length + list2.length];
+
+    System.arraycopy(list1, 0, newList, 0, list1.length);
+
+    System.arraycopy(list2, 0, newList, list1.length, list2.length);
+
+    Arrays.sort(newList);
+
+    return newList;
+
+}
+}
+mmmmmmmmmmmmmmmmmmm
+
+
+
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+7.34
+package ww;
+import java.util.Scanner;
+import java.util.Arrays;
+public class bubblesort {
+
+
+
+public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the string:");
+
+    String str = scanner.next();
+
+    System.out.print("after :" + sort(str));
+
+}
+
+ 
+
+private static String sort(String str) {
+
+    char[] chArray = new char[str.length()];
+
+    String newStr = "";
+
+    for (int i = 0; i < chArray.length; i++) {
+
+        if (i != chArray.length - 1) {
+
+            chArray[i] = str.substring(i, i + 1).charAt(0);
+
+        } else {
+
+            chArray[i] = str.substring(i).charAt(0);
+
+        }
+
+    }
+
+    Arrays.sort(chArray);
+
+    for (char ch : chArray) {
+
+        newStr += String.valueOf(ch);
+
+    }
+
+    return newStr;
+
+}
 }
