@@ -284,8 +284,56 @@ public class bubblesort {
 		}
 	}
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+7-24
+package ww;
+import java.util.Scanner;
+import java.util.Arrays;
 
+public class bubblesort {
+	
+	static String[] suits = { "方片", "黑桃", "红桃", "梅花" };
+	static String[] ranks = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+	
+	public static void main(String[] args){
+		Scanner cin = new Scanner(System.in);	
+	 int[][] pai = new int[4][2];
+		int i = 1;// 保存的张数
+		int m = 1;// 抽牌的张数
 
+		pai[0] = choupai();
+		//System.out.printf(suits[pai[0][0]-1]+ranks[pai[0][1]-1]+"\n");
+		while (i < 4) {
+			for (int j = 0; j < i; j++) {
+				while (pai[i][0] == 0 || pai[i][0] == pai[j][0]) {
+					pai[i] = choupai();
+//					System.out.printf(suits[pai[i][0]-1]+ranks[pai[i][1]-1]+"\n");
+					m++;
+					j=0;
+				}
+			}
+			i++;
+		}
+		for(int k =0;k<4;k++){
+			System.out.println(ranks[pai[k][1]-1]+" of "+suits[pai[k][0]-1]);
+		}
+		System.out.println("number of picks:"+m);
+	}
+
+ 
+
+	public static int[] choupai() {
+
+		int[] a = new int[2];
+
+		a[0] = (int) (Math.random() * 4+1);
+
+		a[1] = (int) (Math.random() * 13+1);
+
+		return a;
+
+	}
+
+}
 
 
 
@@ -345,7 +393,38 @@ private static int[] merge(int[] list1, int[] list2) {
 }
 }
 mmmmmmmmmmmmmmmmmmm
-
+7-32
+package ww;
+import java.util.Scanner;
+import java.util.Arrays;
+public class bubblesort {
+	public static void main(String[] args){
+		Scanner cin = new Scanner(System.in);	
+		int[] nums = new int[10];
+		int a;
+		a= cin.nextInt();
+		for(int i = 0; i <a ;i++){	
+			nums[i] = cin.nextInt();	
+			}		
+		partition(nums, a);
+		System.out.println(a);	
+		for(int j= 0; j < a; j++)	
+			System.out.print(nums[j] + " ");
+		} 	
+	public static void  partition(int[] list,int a){	
+		int temp = 0;		
+		int l=list[0];
+		for(int i = 1; i < a;i++){	
+			if(list[i] <= l){		
+				temp = list[i];			
+				for(int k = i; k>0; k--){
+					list[k]=list[k-1];
+				}
+				list[0]=temp;		
+				}	
+			}	
+		}
+	}
 
 
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
